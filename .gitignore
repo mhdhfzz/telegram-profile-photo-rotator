@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Telegram session & state
+*.session
+*.session-journal
+profile_rotate_state.json
+
+# Environment & credentials
+.env
+.env.local
+
+# Node / Cloudflare
+node_modules/
+dist/
+.wrangler/
