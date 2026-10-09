@@ -102,10 +102,15 @@ Buka URL Worker Anda di browser pada path `/rotate`:
 ```text
 https://telegram-rotator.<subdomain>.workers.dev/rotate
 ```
-- Bot akan aktif, melakukan rotasi pertama, dan menampilkan dashboard status sederhana.
-- Jika tab browser dibiarkan terbuka, halaman akan otomatis me-refresh dan merotasi foto berikutnya sesuai jadwal.
-- Cek status kapan saja: `https://telegram-rotator.<subdomain>.workers.dev/status`
-- Hentikan rotasi: `https://telegram-rotator.<subdomain>.workers.dev/stop`
+- Bot akan aktif, melakukan rotasi pertama, dan menampilkan dashboard status dengan hitung mundur langsung (*real-time countdown*).
+- **Opsi A (24/7 Otomatis Penuh di Cloudflare - Dianjurkan):**
+  Di halaman Worker Cloudflare, buka **Settings** > **Triggers** > **Cron Triggers** > **Add Cron Trigger**, masukkan ekspresi `*/5 * * * *` (setiap 5 menit). Cloudflare akan otomatis memeriksa dan merotasi foto profil di latar belakang tanpa perlu membuka browser sama sekali.
+- **Opsi B (Tanpa Cron Trigger):**
+  Biarkan tab browser dashboard tetap terbuka (halaman otomatis me-refresh dan merotasi foto ketika waktu hitung mundur habis), atau akses URL `/status` kapan saja untuk memicu rotasi otomatis jika jadwal sudah tiba.
+- **Daftar Endpoint:**
+  - Status aktif & hitung mundur: `/status` *(otomatis merotasi foto jika waktu tunggu habis)*
+  - Rotasi paksa sekarang: `/rotate`
+  - Hentikan rotasi: `/stop`
 
 ---
 
